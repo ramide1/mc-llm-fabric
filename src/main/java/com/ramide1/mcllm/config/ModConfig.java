@@ -13,7 +13,8 @@ public class ModConfig {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     private String instructions = "You are a helpful assistant in Minecraft. Respond concisely and friendly.";
-    private String apikey = "";
+    private String apiKey = "";
+    private String baseUrl = "";
     private String model = "gpt-4o-mini";
     private int maxTokens = 800;
 
@@ -32,7 +33,8 @@ public class ModConfig {
             try (FileReader reader = new FileReader(configFile)) {
                 ModConfig loaded = GSON.fromJson(reader, ModConfig.class);
                 this.instructions = loaded.instructions;
-                this.apikey = loaded.apikey;
+                this.apiKey = loaded.apiKey;
+                this.baseUrl = loaded.baseUrl;
                 this.model = loaded.model;
                 this.maxTokens = loaded.maxTokens;
                 logger.info("Configuration loaded successfully.");
@@ -63,7 +65,8 @@ public class ModConfig {
     }
 
     public String getInstructions() { return instructions; }
-    public String getApikey() { return apikey; }
+    public String getApiKey() { return apiKey; }
+    public String getBaseUrl() { return baseUrl; }
     public String getModel() { return model; }
     public int getMaxTokens() { return maxTokens; }
 }

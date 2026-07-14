@@ -24,9 +24,14 @@ public class LlmService {
 
     public String sendRequest(String senderName, String question) {
         try {
-            OpenAIClient client = OpenAIOkHttpClient.builder()
-                    .apiKey(config.getApikey())
-                    .build();
+            OpenAIOkHttpClient.Builder builder = OpenAIOkHttpClient.builder()
+                    .apiKey(config.getApiKey());
+
+            if (config.getBaseUrl() != null && !config.getBaseUrl().isEmpty()) {
+                builder.baseUrl(config.getBaseUrl());
+            }
+
+            OpenAIClient client = builder.build();
 
             List<DatabaseManager.ChatMessage> history = dbManager.getHistory(senderName);
 

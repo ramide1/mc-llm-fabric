@@ -25,7 +25,8 @@ El archivo de configuración se encuentra en `config/mcllm/mcllm.json`:
 ```json
 {
   "instructions": "You are a helpful assistant in Minecraft. Respond concisely and friendly.",
-  "apikey": "tu-api-key-aqui",
+  "apiKey": "tu-api-key-aqui",
+  "baseUrl": "",
   "model": "gpt-4o-mini",
   "maxTokens": 800
 }
@@ -34,7 +35,8 @@ El archivo de configuración se encuentra en `config/mcllm/mcllm.json`:
 ### Parámetros
 
 - `instructions`: Instrucciones del sistema para la IA
-- `apikey`: Tu API key de OpenAI
+- `apiKey`: Tu API key de OpenAI
+- `baseUrl`: URL base de la API (vacío = OpenAI oficial, ej: `http://localhost:11434/v1` para Ollama)
 - `model`: Modelo de IA a utilizar (por defecto: gpt-4o-mini)
 - `maxTokens`: Número máximo de tokens en la respuesta
 
