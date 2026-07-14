@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "minecraft-modding": {
+      "source": "jahrome907/minecraft-codex-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/minecraft-modding/SKILL.md",
+      "computedHash": "26481193c02c1dc8c74f4efea2404ea6635ad2086cf5460c65dde285fef2a454"
+    }
+  }
+}
