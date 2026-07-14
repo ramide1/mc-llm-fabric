@@ -21,6 +21,7 @@
 - **Config:** `config/mcllm/mcllm.json` (Gson-based, not cloth config)
 - **Database:** SQLite at `config/mcllm/history.db` (table: `history` with user_id, role, content, timestamp)
 - **Commands:** Brigadier - `/llm <question>` and `/llmreload`
+- **Permissions:** `mcllm.use` (all), `mcllm.reload` (OP level 2+)
 - **Threading:** OpenAI API calls run via `CompletableFuture.runAsync()` (no Bukkit scheduler)
 
 ## Conventions
