@@ -8,12 +8,13 @@ Un mod de Fabric que permite chatear con IA directamente en Minecraft usando la 
 - Comando `/llmreload` para recargar la configuración
 - Historial de conversaciones guardado en SQLite
 - Configurable (API key, modelo, tokens máximos, instrucciones)
-- Compatible con Fabric 1.21.11
+- **Server-side only** - Los clientes vanilla pueden conectarse sin instalar el mod
+- Compatible con Minecraft 26.2
 
 ## Instalación
 
-1. Instala [Fabric Loader](https://fabricmc.net/use/installer/) para Minecraft 1.21.11
-2. Descarga [Fabric API](https://modrinth.com/mod/fabric-api) para 1.21.11
+1. Instala [Fabric Loader](https://fabricmc.net/use/installer/) >= 0.19.3 para Minecraft 26.2
+2. Descarga [Fabric API](https://modrinth.com/mod/fabric-api) para 26.2
 3. Coloca `mcllm-1.0.0.jar` y `fabric-api` en la carpeta `mods/`
 4. Inicia el servidor
 
@@ -44,8 +45,8 @@ El archivo de configuración se encuentra en `config/mcllm/mcllm.json`:
 
 ## Dependencias
 
-- [Fabric Loader](https://fabricmc.net/) >= 0.16.0
-- [Fabric API](https://modrinth.com/mod/fabric-api)
+- [Fabric Loader](https://fabricmc.net/) >= 0.19.3
+- [Fabric API](https://modrinth.com/mod/fabric-api) para 26.2
 - [OpenAI Java SDK](https://github.com/openai/openai-java) 4.0.0
 - [SQLite JDBC](https://github.com/xerial/sqlite-jdbc) 3.45.1.0
 
