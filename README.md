@@ -1,73 +1,65 @@
 # Minecraft LLM (Fabric)
 
-Un mod de Fabric que permite chatear con IA directamente en Minecraft usando la API de OpenAI.
+A Fabric mod that lets you chat with AI directly in Minecraft using the OpenAI API.
 
-## Características
+## Features
 
-- Comando `/llm <pregunta>` para hacer preguntas a la IA
-- Comando `/llmreload` para recargar la configuración
-- Historial de conversaciones guardado en SQLite
-- Configurable (API key, modelo, tokens máximos, instrucciones)
-- **Server-side only** - Los clientes vanilla pueden conectarse sin instalar el mod
-- Compatible con Minecraft 26.2
+- `/llm <question>` command to ask the AI
+- `/llmreload` command to reload configuration
+- Conversation history saved in SQLite
+- Configurable (API key, base URL, model, max tokens, instructions)
+- **Server-side only** - Vanilla clients can connect without installing the mod
+- Compatible with Minecraft 26.2
 
-## Instalación
+## Installation
 
-1. Instala [Fabric Loader](https://fabricmc.net/use/installer/) >= 0.19.3 para Minecraft 26.2
-2. Descarga [Fabric API](https://modrinth.com/mod/fabric-api) para 26.2
-3. Coloca `mcllm-1.0.0.jar` y `fabric-api` en la carpeta `mods/`
-4. Inicia el servidor
+1. Install [Fabric Loader](https://fabricmc.net/use/installer/) >= 0.19.3 for Minecraft 26.2
+2. Download [Fabric API](https://modrinth.com/mod/fabric-api) for 26.2
+3. Place `mcllm-1.0.0.jar` and `fabric-api` in the `mods/` folder
+4. Start the server
 
-## Configuración
+## Configuration
 
-El archivo de configuración se encuentra en `config/mcllm/mcllm.json`:
+The configuration file is located at `config/mcllm/mcllm.json`:
 
 ```json
 {
   "instructions": "You are a helpful assistant in Minecraft. Respond concisely and friendly.",
-  "apiKey": "tu-api-key-aqui",
+  "apiKey": "your-api-key-here",
   "baseUrl": "",
   "model": "gpt-4o-mini",
   "maxTokens": 800
 }
 ```
 
-### Parámetros
+### Parameters
 
-- `instructions`: Instrucciones del sistema para la IA
-- `apiKey`: Tu API key de OpenAI
-- `baseUrl`: URL base de la API (vacío = OpenAI oficial, ej: `http://localhost:11434/v1` para Ollama)
-- `model`: Modelo de IA a utilizar (por defecto: gpt-4o-mini)
-- `maxTokens`: Número máximo de tokens en la respuesta
+- `instructions`: System instructions for the AI
+- `apiKey`: Your OpenAI API key
+- `baseUrl`: API base URL (empty = official OpenAI, e.g. `http://localhost:11434/v1` for Ollama)
+- `model`: AI model to use (default: gpt-4o-mini)
+- `maxTokens`: Maximum number of tokens in the response
 
-## Comandos
+## Commands
 
-- `/llm <pregunta>` - Hacer una pregunta a la IA
-- `/llmreload` - Recargar la configuración (requiere permisos de operador)
+- `/llm <question>` - Ask a question to the AI
+- `/llmreload` - Reload configuration (requires operator permissions)
 
-## Dependencias
+## Dependencies
 
 - [Fabric Loader](https://fabricmc.net/) >= 0.19.3
-- [Fabric API](https://modrinth.com/mod/fabric-api) para 26.2
+- [Fabric API](https://modrinth.com/mod/fabric-api) for 26.2
 - [OpenAI Java SDK](https://github.com/openai/openai-java) 4.0.0
 - [SQLite JDBC](https://github.com/xerial/sqlite-jdbc) 3.45.1.0
 
-## Desarrollo
-
-### Build
+## Building
 
 ```bash
 ./gradlew build
 ```
 
-El JAR se generará en `build/libs/`
+The JAR will be generated in `build/libs/`
 
-### Run Server
+## License
 
-```bash
-./gradlew runServer
-```
-
-## Licencia
-
-MIT License - Ver [LICENSE](LICENSE) para más detalles.
+MIT License - See [LICENSE](LICENSE) for details.
