@@ -43,7 +43,6 @@ public class LlmCommand {
         
         boolean isPlayer = source.getEntity() instanceof ServerPlayer;
         String senderName = isPlayer ? source.getTextName() : "console";
-        ServerPlayer player = isPlayer ? source.getPlayer() : null;
 
         CompletableFuture.runAsync(() -> {
             String response = llmService.sendRequest(senderName, question);
@@ -53,8 +52,11 @@ public class LlmCommand {
             
             if (!event.isCancelled()) {
                 String finalResponse = event.getResponse();
-                if (player != null && player.isAlive()) {
-                    player.sendSystemMessage(Component.literal(finalResponse));
+                if (isPlayer) {
+                    ServerPlayer player = source.getPlayer();
+                    if (player != null && player.isAlive()) {
+                        player.sendSystemMessage(Component.literal(finalResponse));
+                    }
                 } else {
                     source.sendSystemMessage(Component.literal(finalResponse));
                 }
