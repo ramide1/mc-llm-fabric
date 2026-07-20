@@ -10,7 +10,7 @@
 
 ## Dependencies
 
-- `com.openai:openai-java:4.0.0` - OpenAI SDK
+- `com.fasterxml.jackson.core:jackson-databind:2.21.4` - Jackson for JSON processing
 - `org.xerial:sqlite-jdbc:3.45.1.0` - SQLite for chat history
 - `net.fabricmc.fabric-api:fabric-api:0.152.1+26.2`
 
@@ -18,7 +18,8 @@
 
 - **Type:** Server-side only mod (vanilla clients can connect without installing the mod)
 - **Entry point:** `McLlm.java` implements `ModInitializer`
-- **Config:** `config/mcllm/mcllm.json` (Gson-based, not cloth config)
+- **Config:** `config/mcllm/mcllm.json` (Jackson-based, not cloth config)
+- **API:** Uses OpenAI Completions API (or compatible) via direct HTTP calls
 - **Database:** SQLite at `config/mcllm/history.db` (table: `history` with user_id, role, content, timestamp)
 - **Commands:** Brigadier - `/llm <question>` and `/llmreload`
 - **Permissions:** `mcllm.use` (all), `mcllm.reload` (OP level 2+)

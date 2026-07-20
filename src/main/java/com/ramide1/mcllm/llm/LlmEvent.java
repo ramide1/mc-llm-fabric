@@ -21,22 +21,35 @@ public class LlmEvent {
         this.cancelled = false;
     }
 
-    public static void register(Consumer<LlmEvent> listener) {
-        listeners.add(listener);
-    }
-
     public static void invoke(LlmEvent event) {
         for (Consumer<LlmEvent> listener : listeners) {
             listener.accept(event);
-            if (event.isCancelled()) break;
+            if (event.isCancelled())
+                break;
         }
     }
 
-    public String getPlayerName() { return playerName; }
-    public boolean isConsole() { return isConsole; }
-    public String getMessage() { return message; }
-    public String getResponse() { return response; }
-    public void setResponse(String response) { this.response = response; }
-    public boolean isCancelled() { return cancelled; }
-    public void setCancelled(boolean cancelled) { this.cancelled = cancelled; }
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public boolean isConsole() {
+        return isConsole;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public String getResponse() {
+        return response;
+    }
+
+    public boolean isCancelled() {
+        return cancelled;
+    }
+
+    public void setCancelled(boolean cancelled) {
+        this.cancelled = cancelled;
+    }
 }

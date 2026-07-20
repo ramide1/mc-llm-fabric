@@ -10,7 +10,6 @@ import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.File;
 
 public class McLlm implements ModInitializer {
@@ -33,11 +32,11 @@ public class McLlm implements ModInitializer {
         config = new ModConfig();
         config.load(dataFolder, LOGGER);
 
-        dbManager = new DatabaseManager(dataFolder, LOGGER);
+        dbManager = new DatabaseManager(dataFolder, LOGGER, config.getMaxHistoryMessages());
         llmService = new LlmService(dbManager, config, LOGGER);
 
         LlmCommand llmCommand = new LlmCommand(llmService);
-        ReloadCommand reloadCommand = new ReloadCommand(config);
+        ReloadCommand reloadCommand = new ReloadCommand(config, dbManager);
 
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
             llmCommand.register(dispatcher);

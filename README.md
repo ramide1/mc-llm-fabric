@@ -49,7 +49,7 @@ The configuration file is located at `config/mcllm/mcllm.json`:
 
 - [Fabric Loader](https://fabricmc.net/) >= 0.19.3
 - [Fabric API](https://modrinth.com/mod/fabric-api) for 26.2
-- [OpenAI Java SDK](https://github.com/openai/openai-java) 4.0.0
+- [Jackson Databind](https://github.com/FasterXML/jackson-databind) 2.21.4
 - [SQLite JDBC](https://github.com/xerial/sqlite-jdbc) 3.45.1.0
 
 ## Building
